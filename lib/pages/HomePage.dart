@@ -1,9 +1,11 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:main/widgets/BottomCartSheet.dart';
 import 'package:main/widgets/CategoriesWidget.dart';
 import 'package:main/widgets/ItemsWidget.dart';
 import 'package:main/widgets/PopularItemsWidget.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -50,7 +52,19 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            showSlidingBottomSheet(
+                              context,
+                              builder: (context) {
+                                return SlidingSheetDialog(
+                                    elevation: 8,
+                                    cornerRadius: 16,
+                                    builder: (context, state) {
+                                      return BottomCartSheet();
+                                    });
+                              },
+                            );
+                          },
                           child: Icon(
                             CupertinoIcons.cart,
                             size: 30,
@@ -129,7 +143,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     CategoriesWidget(),
                     PopularItemsWidget(),
-                    ItemsWidget(), 
+                    ItemsWidget(),
                   ],
                 ),
               ),

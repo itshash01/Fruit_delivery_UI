@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:main/widgets/BottomBar.dart';
 
 class ItemPage extends StatelessWidget {
   @override
@@ -160,6 +161,9 @@ class ItemPage extends StatelessWidget {
                           CupertinoIcons.clock,
                           color: Colors.white,
                         ),
+                        SizedBox(
+                          width: 5,
+                        ),
                         Text(
                           '20 Minutes',
                           style: TextStyle(
@@ -177,6 +181,7 @@ class ItemPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }
